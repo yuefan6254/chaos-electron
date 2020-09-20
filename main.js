@@ -9,6 +9,7 @@ function createWindow() {
 
   if (isDev) {
     mainWindow.loadURL('http://localhost:3000');
+    mainWindow.webContents.openDevTools({mode: 'detach'});
   } else{
     mainWindow.loadFile(path.resolve(__dirname,'./dist/index.html'))
   }
