@@ -1,0 +1,43 @@
+{
+  "name": "chaos-electron",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start-electron": "cross-env ENV=development electron .",
+    "start": "webpack-dev-server --config webpack.config.js",
+    "build-render": "webpack --config webpack.config.js",
+    "build-electron": "electron-packager ./ electronApp --win --out ./release --ignore=node_modules",
+    "build": "npm run build-render && npm run build-electron"
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^10.1.1"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.3.0",
+    "electron-packager": "^15.1.0",
+    "html-webpack-plugin": "^4.4.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
