@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "antd": "^4.6.5",
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
     "electron-packager": "^15.1.0",

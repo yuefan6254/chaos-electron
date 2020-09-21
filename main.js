@@ -4,7 +4,7 @@ const path = require('path');
 const isDev = process.env.ENV === 'development';
 
 function createWindow() {
-  const mainWindow = new BrowserWindow({width: 800,height: 600, webPreferences: {nodeIntegration: true,webviewTag: true, enableWebSQL: false, nativeWindowOpen: true }})
+  const mainWindow = new BrowserWindow({width: 800,height: 600,titleBarStyle: 'customButtonsOnHover',frame: false, webPreferences: {nodeIntegration: true,webviewTag: true, enableWebSQL: false, nativeWindowOpen: true }})
   mainWindow.setMenuBarVisibility(false);
 
   if (isDev) {
