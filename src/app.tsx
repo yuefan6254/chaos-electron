@@ -1,22 +1,24 @@
 import './app.scss';
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect, createContext } from 'react';
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
+import { TitleBar } from './components/index';
 
-// class App extends React.Component{
-//     render(){
-//         return(
-//             <div id='main'>Hello React3</div>
-//         )
-//     }
-// }
+export const AppContext = createContext({});
 
-function App(){
-    const [isOnline, setIsOnline] = useState(null);
+function App() {
+    const [config, setConfig] = useState({
+        bgColor: 'rgb(107, 113, 125)',
+        titlebarHight: '30px'
+    })
 
-    function handleStatusChange(status:any){
-        setIsOnline(status.isOnline);
-    }
-
-    useEffect(() => {})
+    return (
+        <AppContext.Provider value={{ config, setConfig }}>
+            <div id='main'>
+                <TitleBar></TitleBar>
+            </div>
+        </AppContext.Provider>
+    )
 }
 
 export default App;

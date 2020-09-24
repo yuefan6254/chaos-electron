@@ -16,6 +16,19 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
+      },{
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
+      },{
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader'
+        ]
       },
       {
         test: /\.scss$/,
@@ -40,9 +53,9 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js','.css','.less','.scss'],
     alias: {
-      "@container": path.resolve(__dirname, 'src/container/')
+      "@src": path.resolve(__dirname, 'src/')
     }
   },
   plugins: [

@@ -11,8 +11,8 @@
       "allowJs": true,
       "baseUrl": "./",
       "paths": {
-        "@container/*": [
-          "src/container/*"
+        "@src/*": [
+          "src/*"
         ]
       }
     }
