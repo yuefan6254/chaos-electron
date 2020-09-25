@@ -1,11 +1,38 @@
 .component-titlebar {
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    justify-content: left;
+    overflow: visible;
+
     .titlebar-drag-tegion {
-        top:0;
+        top: 0;
         left: 0;
         display: block;
         position: absolute;
         width: 100%;
-        height: 100%;
         -webkit-app-region: drag;
+        height: 30px;
+    }
+
+    .window-controls-container {
+        display: flex;
+        flex-grow: 0;
+        flex-shrink: 0;
+        text-align: center;
+        position: relative;
+        z-index: 3000;
+        -webkit-app-region: no-drag;
+        height: 100%;
+        width: 138px;
+        margin-left: auto;
+
+        .window-icon {
+            display: inline-block;
+            line-height: 30px;
+            height: 100%;
+            width: 46px;
+            font-size: 16px;
+        }
     }
 }

@@ -1,23 +1,24 @@
 import './app.scss';
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useReducer } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import { TitleBar } from './components/index';
+import {reducer,MixStateAndDispatch} from './store/index';
 
-export const AppContext = createContext({});
+
+
+export const ColorContext = createContext<MixStateAndDispatch>({
+    state: {color: 'rgb(33, 37, 43)'}
+})
 
 function App() {
-    const [config, setConfig] = useState({
-        bgColor: 'rgb(107, 113, 125)',
-        titlebarHight: '30px'
-    })
-
+    const [state,dispatch] = useReducer(reducer,{color: 'rgb(33, 37, 43)'})
     return (
-        <AppContext.Provider value={{ config, setConfig }}>
+        <ColorContext.Provider value={{state,dispatch}}>
             <div id='main'>
                 <TitleBar></TitleBar>
             </div>
-        </AppContext.Provider>
+        </ColorContext.Provider>
     )
 }
 
