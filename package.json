@@ -29,6 +29,7 @@
     "antd": "^4.6.5",
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
+    "electron-is": "^3.0.0",
     "electron-packager": "^15.1.0",
     "html-webpack-plugin": "^4.4.1",
     "less": "^3.12.2",

@@ -5,8 +5,6 @@ import 'antd/dist/antd.css';
 import { TitleBar } from './components/index';
 import {reducer,MixStateAndDispatch} from './store/index';
 
-
-
 export const ColorContext = createContext<MixStateAndDispatch>({
     state: {color: 'rgb(33, 37, 43)'}
 })
