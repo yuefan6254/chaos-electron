@@ -4,7 +4,7 @@ const is = require('electron-is');
 // ipc通信发送的窗口状态改变事件的channel名称
 const windowStateChangeChannel = 'window-state-changed';
 
-// window窗口当前状态
+// window当前状态
 const WINDOW_STATE = {
     FULLSCREEN:'full-screen',
     MAXIMIZED: 'maximized',
@@ -13,7 +13,7 @@ const WINDOW_STATE = {
     NORMAL: 'normal'
 }
 
-// window窗口可执行操作，通过发送消息触发
+// window可执行操作，通过发送消息触发
 const windowAction = {
     maximize: 'window-maximize',
     unmaximize: 'window-unmaximize',
@@ -22,7 +22,7 @@ const windowAction = {
 }
 
 /**
- * 获取window窗口当前状态
+ * 获取window当前状态
  * @param {*} window 
  */
 function getWindowState(window){
@@ -55,7 +55,7 @@ function sendWindowStateEvent(window,state){
 }
 
 /**
- * 注册window窗口状态变化事件，发送消息到renderer进程
+ * 注册window状态变化事件，发送消息到renderer进程
  * @param {*} window 
  */
 function registerWindowStateChangedEvents(window){
@@ -70,7 +70,7 @@ function registerWindowStateChangedEvents(window){
 }
 
 /**
- * 注册window窗口状态变化动作，使用ipcRenderer.send发送对应的消息触发
+ * 注册window状态变化动作，使用ipcRenderer.send发送对应的消息触发
  * @param {*} window 
  */
 function registerWindowStateChangeActions(window){
@@ -81,7 +81,7 @@ function registerWindowStateChangeActions(window){
     // 窗口取消最大化
     ipcMain.on(windowAction.unmaximize, () => window.unmaximize());
     // 窗口关闭
-    ipcMain.on(windowAction.close, () => window.close())
+    ipcMain.on(windowAction.close, () => window.destroy())
 }
 
 /**
@@ -131,7 +131,7 @@ function handleMaximizeWindow(){
  * 每个方法返回一个promise。方便处理后续逻辑
  */
 const windowStateActionResponse = {
-    maximize: handleMaximizeWindow,
+    maximize: generatePromisedWindowStateFunc(windowAction.maximize),
     unmaximize: generatePromisedWindowStateFunc(windowAction.unmaximize),
     minimize: generatePromisedWindowStateFunc(windowAction.minimize),
     close: generatePromisedWindowStateFunc(windowAction.close)
@@ -160,6 +160,7 @@ function listenToWindowStateChange(handle){
 }
 
 module.exports = {
+    WINDOW_STATE,
     getWindowState,
     registerWindowStateChangeActions,
     registerWindowStateChangedEvents,

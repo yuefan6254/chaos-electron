@@ -5,7 +5,18 @@ const isDev = process.env.ENV === 'development';
 const {registerWindowStateChangeActions,registerWindowStateChangedEvents} = require('./ipc/index');
 
 function createWindow() {
-  const mainWindow = new BrowserWindow({width: 800,height: 600,titleBarStyle: 'customButtonsOnHover',frame: false, webPreferences: {nodeIntegration: true,webviewTag: true, enableWebSQL: false, nativeWindowOpen: true }})
+  const mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    titleBarStyle: 'customButtonsOnHover',
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true,
+      webviewTag: true,
+      enableWebSQL: false,
+      nativeWindowOpen: true }
+    })
   mainWindow.setMenuBarVisibility(false);
 
   if (isDev) {
