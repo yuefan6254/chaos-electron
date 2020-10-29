@@ -37,7 +37,7 @@ function TitleBar() {
     }
 
     return (
-        <div id='titlebar' className='component-titlebar' style={{ backgroundColor: color, height: '30px' }}>
+        <div id='titlebar' className='component-titlebar' style={{ backgroundColor: color}}>
             <div className='titlebar-drag-tegion'></div>
             <div className='window-controls-container'>
                 <LineOutlined onClick={() => handleMinimizedScreen()} className='window-icon'></LineOutlined>

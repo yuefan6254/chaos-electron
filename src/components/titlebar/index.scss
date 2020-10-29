@@ -1,7 +1,7 @@
 .component-titlebar {
     padding: 0;
-    height: 30px;
-    line-height: 30px;
+    height: 50px;
+    line-height: 50px;
     justify-content: left;
     overflow: visible;
     color: rgb(107, 113, 125);
@@ -13,7 +13,7 @@
         position: absolute;
         width: 100%;
         -webkit-app-region: drag;
-        height: 30px;
+        height: 50px;
     }
 
     .window-controls-container {
@@ -30,12 +30,15 @@
 
         .window-icon {
             display: inline-block;
-            line-height: 30px;
+            line-height: 50px;
             height: 100%;
             width: 46px;
-            font-size: 16px;
-            // color: #6b717d;
-            color: #9da5b4;
+            font-size: 15px;
+            color: #fbd9d9;
+
+            &:hover{
+                color: #fff;
+            }
         }
     }
 }
