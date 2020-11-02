@@ -1,7 +1,7 @@
 .component-titlebar {
     padding: 0;
-    height: 50px;
-    line-height: 50px;
+    height: 40px;
+    line-height: 40px;
     justify-content: left;
     overflow: visible;
     color: rgb(107, 113, 125);
@@ -13,7 +13,7 @@
         position: absolute;
         width: 100%;
         -webkit-app-region: drag;
-        height: 50px;
+        height: 40px;
     }
 
     .window-controls-container {
@@ -30,7 +30,7 @@
 
         .window-icon {
             display: inline-block;
-            line-height: 50px;
+            line-height: 40px;
             height: 100%;
             width: 46px;
             font-size: 15px;
