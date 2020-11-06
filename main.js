@@ -36,4 +36,4 @@ function createWindow() {
 }
 
 app.once('ready', createWindow);
-app.on('window-all-closed', () => app.quit());  
+app.on('window-all-closed', () => app.quit());

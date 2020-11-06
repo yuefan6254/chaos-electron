@@ -1,4 +1,4 @@
-const {ipcMain, ipcRenderer,remote} = require('electron');
+const { ipcMain, ipcRenderer, remote } = require('electron');
 const is = require('electron-is');
 
 // ipc通信发送的窗口状态改变事件的channel名称
@@ -6,7 +6,7 @@ const windowStateChangeChannel = 'window-state-changed';
 
 // window当前状态
 const WINDOW_STATE = {
-    FULLSCREEN:'full-screen',
+    FULLSCREEN: 'full-screen',
     MAXIMIZED: 'maximized',
     MINIMIZED: 'minimized',
     HIDDEN: 'hidden',
@@ -25,20 +25,20 @@ const windowAction = {
  * 获取window当前状态
  * @param {*} window 
  */
-function getWindowState(window){
-    if(window.isFullScreen()){
+function getWindowState(window) {
+    if (window.isFullScreen()) {
         return WINDOW_STATE.FULLSCREEN;
     }
 
-    if(window.isMaximized()){
+    if (window.isMaximized()) {
         return WINDOW_STATE.MAXIMIZED;
     }
 
-    if(window.isMinimized()){
+    if (window.isMinimized()) {
         return WINDOW_STATE.MINIMIZED;
     }
 
-    if(!window.isVisible()){
+    if (!window.isVisible()) {
         return WINDOW_STATE.HIDDEN;
     }
 
@@ -50,7 +50,7 @@ function getWindowState(window){
  * @param {*} window 
  * @param {*} state 
  */
-function sendWindowStateEvent(window,state){
+function sendWindowStateEvent(window, state) {
     window.webContents.send(windowStateChangeChannel, state)
 }
 
@@ -58,24 +58,24 @@ function sendWindowStateEvent(window,state){
  * 注册window状态变化事件，发送消息到renderer进程
  * @param {*} window 
  */
-function registerWindowStateChangedEvents(window){
+function registerWindowStateChangedEvents(window) {
     window.on('enter-full-screen', () => sendWindowStateEvent(window, WINDOW_STATE.FULLSCREEN));
     window.on('leave-full-screen', () => sendWindowStateEvent(window, WINDOW_STATE.NORMAL));
     window.on('maximize', () => sendWindowStateEvent(window, WINDOW_STATE.MAXIMIZED));
     window.on('minimize', () => sendWindowStateEvent(window, WINDOW_STATE.MINIMIZED));
     window.on('unmaximize', () => sendWindowStateEvent(window, WINDOW_STATE.NORMAL));
-    window.on('restore', () =>sendWindowStateEvent(window, WINDOW_STATE.NORMAL));
+    window.on('restore', () => sendWindowStateEvent(window, WINDOW_STATE.NORMAL));
     window.on('hide', () => sendWindowStateEvent(window, WINDOW_STATE.HIDDEN));
-    window.on('show', () =>sendWindowStateEvent(window, WINDOW_STATE.NORMAL));
+    window.on('show', () => sendWindowStateEvent(window, WINDOW_STATE.NORMAL));
 }
 
 /**
  * 注册window状态变化动作，使用ipcRenderer.send发送对应的消息触发
  * @param {*} window 
  */
-function registerWindowStateChangeActions(window){
+function registerWindowStateChangeActions(window) {
     // 窗口最小化
-    ipcMain.on(windowAction.minimize,() => window.minimize());
+    ipcMain.on(windowAction.minimize, () => window.minimize());
     // 窗口最大化
     ipcMain.on(windowAction.maximize, () => window.maximize());
     // 窗口取消最大化
@@ -88,11 +88,11 @@ function registerWindowStateChangeActions(window){
  * 生成带有Promise的操作窗口函数，可以进一步处理事件结束后的逻辑
  * @param {*} action 
  */
-function generatePromisedWindowStateFunc(action){
+function generatePromisedWindowStateFunc(action) {
     return () => {
         return new Promise((resolve) => {
             ipcRenderer.send(action)
-            ipcRenderer.once(windowStateChangeChannel,(event,args) => {
+            ipcRenderer.once(windowStateChangeChannel, (event, args) => {
                 resolve(args)
             })
         })
@@ -103,7 +103,7 @@ function generatePromisedWindowStateFunc(action){
  * 生成不带有promise的操作窗口函数，只负责触发事件
  * @param {*} action 
  */
-function generateWindowStateFunc(action){
+function generateWindowStateFunc(action) {
     return () => {
         ipcRenderer.send(action)
     }
@@ -112,15 +112,15 @@ function generateWindowStateFunc(action){
 /**
  * 最大化窗口，因为window与macOS的差异，单独写成一个函数
  */
-function handleMaximizeWindow(){
-    if(is.windows()){
+function handleMaximizeWindow() {
+    if (is.windows()) {
         remote.getCurrentWindow().maximize()
         return Promise.resolve(WINDOW_STATE.MAXIMIZED)
     }
 
     return new Promise((resolve) => {
         ipcRenderer.send(windowAction.maximize);
-        ipcRenderer.once(windowStateChangeChannel,(event,args) => {
+        ipcRenderer.once(windowStateChangeChannel, (event, args) => {
             resolve(args)
         })
     })
@@ -152,8 +152,8 @@ const windowStateAction = {
  * 窗口改变事件增加监听
  * @param {*} handle 
  */
-function listenToWindowStateChange(handle){
-    ipcRenderer.on(windowStateChangeChannel,handle);
+function listenToWindowStateChange(handle) {
+    ipcRenderer.on(windowStateChangeChannel, handle);
     return () => {
         ipcRenderer.removeListener(windowStateChangeChannel, handle);
     }

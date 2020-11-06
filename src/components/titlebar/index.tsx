@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
 import './index.scss';
 import { ColorContext } from '@src/app';
-import { CloseOutlined, SwitcherOutlined, BorderOutlined, LineOutlined } from '@ant-design/icons';
 import { ipcRenderer, remote } from 'electron';
+import React, { useContext, useEffect, useState } from 'react';
+import { CloseOutlined, SwitcherOutlined, BorderOutlined, LineOutlined } from '@ant-design/icons';
 import { windowStateActionResponse, WINDOW_STATE, getWindowState } from '@ipc/index';
 
 function TitleBar() {
