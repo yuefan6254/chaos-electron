@@ -1,20 +1,32 @@
 .component-menu {
     width: 48px;
     height: 100%;
-    border-right: 1px solid #e1e1e1;
+    background-color: rgb(40, 44, 52);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
+    .menu-icon,
+    .user {
+        color: rgba(215, 218, 224, .4);
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(215, 218, 224);
+        }
+    }
+
+    .composite-icon-click {
+        color: rgb(215, 218, 224);
+        border-left: 1px solid rgb(215, 218, 224);
+    }
+
     .menu-icon {
         font-size: 24px;
-        opacity: .6;
-        color: rgba(0, 0, 0, .85);
         height: 48px;
         line-height: 48px;
         text-align: center;
         width: 100%;
-        cursor: pointer;
     }
 
     .appstore {
@@ -29,9 +41,6 @@
         padding: 1px;
         height: 24px;
         line-height: 24px;
-        opacity: .6;
-        color: rgba(0, 0, 0, .85);
         margin: 12px;
-        cursor: pointer;
     }
 }
