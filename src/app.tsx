@@ -2,7 +2,7 @@ import './app.scss';
 import React, { useState, useEffect, createContext, useReducer } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
-import { TitleBar,Menu} from './components/index';
+import { TitleBar,ActivityBar} from './components/index';
 import {reducer,MixStateAndDispatch} from './store/index';
 
 export const ColorContext = createContext<MixStateAndDispatch>({
@@ -16,7 +16,7 @@ function App() {
             <div id='main' className='app'>
                 <TitleBar></TitleBar>
                 <div className='container'>
-                    <Menu></Menu>
+                    <ActivityBar></ActivityBar>
                 </div>
             </div>
         </ColorContext.Provider>

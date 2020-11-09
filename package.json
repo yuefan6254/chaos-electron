@@ -4,7 +4,7 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start-electron": "cross-env ENV=development electron .",
+    "start-electron": "cross-env ENV=development electron -r @babel/register .",
     "start": "webpack-dev-server --config webpack.config.js",
     "build-render": "webpack --config webpack.config.js",
     "build-electron": "electron-packager ./ electronApp --win --out ./release --ignore=node_modules",
@@ -24,6 +24,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "antd": "^4.6.5",

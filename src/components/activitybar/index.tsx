@@ -2,7 +2,7 @@ import './index.scss';
 import React, { useState } from 'react';
 import { AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
 
-function Menu() {
+function ActivityBar() {
     const [panelState, SetPanelState] = useState({ name: 'home', show: false });
 
     /**
@@ -20,7 +20,7 @@ function Menu() {
     }
 
     return (
-        <div className='component-menu'>
+        <div className='component-activitybar'>
             <div className='composite-bar'>
                 <HomeOutlined className='menu-icon' onClick={() => clickCompositeIcon('homed')}></HomeOutlined>
                 <AppstoreAddOutlined className='menu-icon appstore' />
@@ -34,4 +34,4 @@ function Menu() {
         </div>
     )
 }
-export default Menu;
+export default ActivityBar;

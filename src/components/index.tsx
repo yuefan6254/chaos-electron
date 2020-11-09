@@ -1,9 +1,9 @@
 import TitleBar from './titlebar';
 import Header from './header';
-import Menu from './menu';
+import ActivityBar from './activitybar';
 
 export {
     Header,
     TitleBar,
-    Menu
+    ActivityBar
 }

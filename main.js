@@ -33,6 +33,8 @@ function createWindow() {
   registerWindowStateChangedEvents(mainWindow);
   registerWindowStateChangeActions(mainWindow);
 
+  // 添加快捷键
+
 }
 
 app.once('ready', createWindow);
