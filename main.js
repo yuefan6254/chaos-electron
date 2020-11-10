@@ -1,8 +1,7 @@
-// Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+import path from 'path';
+import { app, BrowserWindow } from 'electron';
+import { registerWindowStateChangeActions, registerWindowStateChangedEvents } from './ipc/index';
 const isDev = process.env.ENV === 'development';
-const { registerWindowStateChangeActions, registerWindowStateChangedEvents } = require('./ipc/index');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({

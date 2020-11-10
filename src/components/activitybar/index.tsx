@@ -1,5 +1,6 @@
 import './index.scss';
 import React, { useState } from 'react';
+import SideBar from '../sidebar';
 import { AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
 
 function ActivityBar() {
@@ -31,6 +32,7 @@ function ActivityBar() {
                 <UserOutlined className='user'></UserOutlined>
                 <SettingOutlined className='menu-icon'></SettingOutlined>
             </div>
+            {panelState.show && <SideBar></SideBar>}
         </div>
     )
 }

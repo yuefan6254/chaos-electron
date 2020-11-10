@@ -1,10 +1,10 @@
 .component-titlebar {
     padding: 0;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     justify-content: left;
     overflow: visible;
-    color: rgb(107, 113, 125);
+    color: rgba(0, 0, 0, 0.6);
 
     .titlebar-drag-tegion {
         top: 0;
@@ -13,7 +13,7 @@
         position: absolute;
         width: 100%;
         -webkit-app-region: drag;
-        height: 40px;
+        height: 30px;
     }
 
     .window-controls-container {
@@ -30,15 +30,20 @@
 
         .window-icon {
             display: inline-block;
-            line-height: 40px;
+            line-height: 30px;
             height: 100%;
             width: 46px;
-            font-size: 15px;
-            color: #fbd9d9;
+            font-size: 16px;
+            font-weight: 100;
 
             &:hover{
-                color: #fff;
+                background-color: #cccccc;
             }
+        }
+
+        .close:hover{
+            background-color: #F92672;
+            border: 0;
         }
     }
 }

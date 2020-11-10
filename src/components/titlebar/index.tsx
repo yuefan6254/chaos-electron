@@ -43,7 +43,7 @@ function TitleBar() {
                 <LineOutlined onClick={() => handleMinimizedScreen()} className='window-icon'></LineOutlined>
                 {WINDOW_STATE.MAXIMIZED === windowState && (<SwitcherOutlined onClick={() => handleUnMaximizedScreen()} className='window-icon'></SwitcherOutlined>)}
                 {WINDOW_STATE.NORMAL === windowState && (<BorderOutlined onClick={() => handleMaximizedScreen()} className='window-icon'></BorderOutlined>)}
-                <CloseOutlined onClick={() => handleCloseScreen()} className='window-icon'></CloseOutlined>
+                <CloseOutlined onClick={() => handleCloseScreen()} className='window-icon close'></CloseOutlined>
             </div>
         </div>
     )
