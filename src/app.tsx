@@ -2,17 +2,17 @@ import './app.scss';
 import React, { useState, useEffect, createContext, useReducer } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
-import { TitleBar,ActivityBar} from './components/index';
-import {reducer,MixStateAndDispatch} from './store/index';
+import { TitleBar, ActivityBar } from './components/index';
+import { reducer, MixStateAndDispatch } from './store/index';
 
 export const ColorContext = createContext<MixStateAndDispatch>({
-    state: {color: 'rgb(231, 234, 235)'}
+    state: { color: 'rgb(231, 234, 235)' }
 })
 
 function App() {
-    const [state,dispatch] = useReducer(reducer,{color: 'rgb(231, 234, 235)'})
+    const [state, dispatch] = useReducer(reducer, { color: 'rgb(231, 234, 235)' })
     return (
-        <ColorContext.Provider value={{state,dispatch}}>
+        <ColorContext.Provider value={{ state, dispatch }}>
             <div id='main' className='app'>
                 <TitleBar></TitleBar>
                 <div className='container'>
