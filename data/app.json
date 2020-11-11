@@ -1,0 +1,14 @@
+{
+    "activitybars": [
+        {
+            "name": "home",
+            "icon": "HomeOutlined"
+        },{
+            "name": "store",
+            "icon": "AppstoreAddOutlined"
+        },{
+            "name": "experiment",
+            "icon": "ExperimentOutlined"
+        }
+    ]
+}

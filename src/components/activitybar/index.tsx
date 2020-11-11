@@ -1,10 +1,15 @@
 import './index.scss';
 import React, { useState } from 'react';
 import SideBar from '../sidebar';
-import { AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
+import AntIcons,{ AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
+import low from 'lowdb';
+import FileSync from 'lowdb/adapters/FileSync';
 
 function ActivityBar() {
     const [panelState, SetPanelState] = useState({ name: 'home', show: false });
+    const adapters = new FileSync('/data/app.json');
+    const db = low(adapters)
+    const activitybars = db.get('activitybars').value();
 
     /**
      * 点击composite-bar区域的icon
@@ -23,9 +28,10 @@ function ActivityBar() {
     return (
         <div className='component-activitybar'>
             <div className='composite-bar'>
-                <HomeOutlined className='menu-icon' onClick={() => clickCompositeIcon('homed')}></HomeOutlined>
+                {/* <HomeOutlined className='menu-icon' onClick={() => clickCompositeIcon('homed')}></HomeOutlined>
                 <AppstoreAddOutlined className='menu-icon appstore' />
-                <ExperimentOutlined className='menu-icon'></ExperimentOutlined>
+                <ExperimentOutlined className='menu-icon'></ExperimentOutlined> */}
+                {/* {activitybars.map((item:{icon: string,name: string},index) => <AntIcons[item.icon] />)} */}
             </div>
 
             <div className='fixed-bar'>
