@@ -1,13 +1,14 @@
 import './index.scss';
 import React, { useState } from 'react';
 import SideBar from '../sidebar';
-import AntIcons,{ AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
+import Icon from '../icon';
+import AntIcons, { AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
 import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 
 function ActivityBar() {
     const [panelState, SetPanelState] = useState({ name: 'home', show: false });
-    const adapters = new FileSync('/data/app.json');
+    const adapters = new FileSync('data/app.json');
     const db = low(adapters)
     const activitybars = db.get('activitybars').value();
 
@@ -28,10 +29,8 @@ function ActivityBar() {
     return (
         <div className='component-activitybar'>
             <div className='composite-bar'>
-                {/* <HomeOutlined className='menu-icon' onClick={() => clickCompositeIcon('homed')}></HomeOutlined>
-                <AppstoreAddOutlined className='menu-icon appstore' />
-                <ExperimentOutlined className='menu-icon'></ExperimentOutlined> */}
-                {/* {activitybars.map((item:{icon: string,name: string},index) => <AntIcons[item.icon] />)} */}
+                {activitybars.map((item: { name: string, icon: string }, index: number) =>
+                    <Icon onClick={() => clickCompositeIcon(item.name)} key={index} iconName={item.icon} className={`menu-icon ${panelState.name == item.name && panelState.show ? 'click' : ''}`} />)}
             </div>
 
             <div className='fixed-bar'>

@@ -29,8 +29,13 @@
         width: 100%;
     }
 
-    .appstore {
-        transform: scale(-1);
+    .click::after {
+        border-left: 2px solid #000;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        height: 48px;
+        content: '';
     }
 
     .user {

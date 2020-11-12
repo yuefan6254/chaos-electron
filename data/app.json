@@ -10,5 +10,11 @@
             "name": "experiment",
             "icon": "ExperimentOutlined"
         }
+    ],
+    "apps": [
+        {
+            "name": "TV",
+            "tags": ["tv","live"]
+        }
     ]
 }
