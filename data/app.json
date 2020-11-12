@@ -11,10 +11,12 @@
             "icon": "ExperimentOutlined"
         }
     ],
-    "apps": [
+    "apps-all": [
         {
             "name": "TV",
+            "icon": "YoutubeOutlined",
             "tags": ["tv","live"]
         }
-    ]
+    ],
+    "apps-staple": []
 }

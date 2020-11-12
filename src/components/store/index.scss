@@ -1,0 +1,13 @@
+.component-store{
+    width: 100%;
+
+    .search{
+        background-color: #fff;
+        height: 26px;
+        width: calc(100% - 32px);
+        margin: 16px;
+        border-radius: 2px;
+        color: rgba(97, 97, 97, 0.5);
+        cursor: pointer;
+    }
+}

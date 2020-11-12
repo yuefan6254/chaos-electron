@@ -2,7 +2,7 @@ import './index.scss';
 import React, { useState } from 'react';
 import SideBar from '../sidebar';
 import Icon from '../icon';
-import AntIcons, { AppstoreAddOutlined, ExperimentOutlined, SettingOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
+import { SettingOutlined, UserOutlined } from '@ant-design/icons';
 import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 
@@ -37,7 +37,7 @@ function ActivityBar() {
                 <UserOutlined className='user'></UserOutlined>
                 <SettingOutlined className='menu-icon'></SettingOutlined>
             </div>
-            {panelState.show && <SideBar></SideBar>}
+            {panelState.show && <SideBar name={panelState.name}></SideBar>}
         </div>
     )
 }
