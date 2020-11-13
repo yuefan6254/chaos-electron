@@ -1,7 +1,7 @@
-.component-store{
+.component-store {
     width: 100%;
 
-    .search{
+    .search {
         background-color: #fff;
         height: 26px;
         width: calc(100% - 32px);
@@ -9,5 +9,21 @@
         border-radius: 2px;
         color: rgba(97, 97, 97, 0.5);
         cursor: pointer;
+    }
+
+    .staple,
+    .all .title {
+        cursor: pointer;
+        line-height: 22px;
+        background-color: rgba(128, 128, 128, 0.2);
+
+        .icon{
+            width: 20px;
+        }
+
+        span {
+            color: #616161;
+            font-size: 11px;
+        }
     }
 }
