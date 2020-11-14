@@ -1,8 +1,9 @@
 .component-sidebar{
-    background-color: rgb(235, 237, 239);
+    z-index: 1;
+    left: 48px;
     width: 320px;
     position: absolute;
     height: calc(100% - 30px);
-    z-index: 1;
-    left: 48px;
+    border: 1px solid #ebedef;
+    background-color: rgb(235, 237, 239);
 }

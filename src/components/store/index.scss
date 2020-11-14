@@ -1,5 +1,8 @@
 .component-store {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .search {
         background-color: #fff;
@@ -30,6 +33,6 @@
     }
 
     .expansion{
-        height: 50%;
+        flex: 1;
     }
 }
