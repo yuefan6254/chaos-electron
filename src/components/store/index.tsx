@@ -16,15 +16,15 @@ function Store() {
     return (
         <div className='component-store'>
             <div className='search'></div>
-            <div className='staple'>
-                <div className='title'>
+            <div className={`staple ${allState?'expansion':''}`}>
+                <div className='title' onClick={() => SetStapleState(!stapleState)}>
                     {stapleState ? <DownOutlined className='icon'/> : <RightOutlined className='icon'/>}
                     <span>常用</span>
                 </div>
             </div>
             <div className='all'>
-                <div className='title'>
-                    {allState ? <DownOutlined /> : <RightOutlined />}
+                <div className='title' onClick={() => SetAllState(!allState)}>
+                    {allState ? <DownOutlined className='icon' /> : <RightOutlined className='icon'/>}
                     <span>全部</span>
                 </div>
             </div>

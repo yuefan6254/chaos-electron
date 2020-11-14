@@ -12,18 +12,24 @@
     }
 
     .staple,
-    .all .title {
-        cursor: pointer;
-        line-height: 22px;
-        background-color: rgba(128, 128, 128, 0.2);
+    .all {
+        .title {
+            cursor: pointer;
+            line-height: 22px;
+            background-color: rgba(128, 128, 128, 0.2);
+    
+            .icon{
+                width: 20px;
+            }
+    
+            span {
+                color: #616161;
+                font-size: 11px;
+            }
+    }
+    }
 
-        .icon{
-            width: 20px;
-        }
-
-        span {
-            color: #616161;
-            font-size: 11px;
-        }
+    .expansion{
+        height: 50%;
     }
 }
