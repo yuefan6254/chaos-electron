@@ -20,19 +20,29 @@
             cursor: pointer;
             line-height: 22px;
             background-color: rgba(128, 128, 128, 0.2);
-    
-            .icon{
+
+            .icon {
                 width: 20px;
             }
-    
+
             span {
                 color: #616161;
                 font-size: 11px;
             }
-    }
+        }
+
+        .package{
+            .application{
+                height: 62px;
+
+                .icon{
+                    font-size: 48px;
+                }
+            }
+        }
     }
 
-    .expansion{
+    .expansion {
         flex: 1;
     }
 }

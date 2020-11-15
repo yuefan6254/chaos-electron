@@ -3,6 +3,7 @@ import './index.scss';
 import low from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
 import { RightOutlined, DownOutlined } from '@ant-design/icons';
+import Icon from '../icon';
 
 function Store() {
     const [stapleState, SetStapleState] = useState(true);
@@ -21,11 +22,17 @@ function Store() {
                     {stapleState ? <DownOutlined className='icon'/> : <RightOutlined className='icon'/>}
                     <span>常用</span>
                 </div>
+                <div className='package'></div>
             </div>
             <div className={`all ${allState?'expansion':''}`}>
                 <div className='title' onClick={() => SetAllState(!allState)}>
                     {allState ? <DownOutlined className='icon' /> : <RightOutlined className='icon'/>}
                     <span>全部</span>
+                </div>
+                <div className='package'>
+                    {allApps.map((item:{name:string,icon:string},index:number) => <div className='application' key={index}>
+                        <Icon iconName={item.icon} className='icon'></Icon>
+                    </div>)}
                 </div>
             </div>
         </div>
