@@ -1,22 +1,40 @@
 {
-    "activitybars": [
-        {
-            "name": "home",
-            "icon": "HomeOutlined"
-        },{
-            "name": "store",
-            "icon": "AppstoreAddOutlined"
-        },{
-            "name": "experiment",
-            "icon": "ExperimentOutlined"
-        }
-    ],
-    "apps-all": [
-        {
-            "name": "TV",
-            "icon": "YoutubeOutlined",
-            "tags": ["tv","live"]
-        }
-    ],
-    "apps-staple": []
+  "activitybars": [
+    {
+      "name": "home",
+      "icon": "HomeOutlined"
+    },
+    {
+      "name": "store",
+      "icon": "AppstoreAddOutlined"
+    },
+    {
+      "name": "experiment",
+      "icon": "ExperimentOutlined"
+    }
+  ],
+  "apps-all": [
+    {
+      "name": "TV",
+      "icon": "YoutubeOutlined",
+      "tags": [
+        "tv",
+        "live"
+      ],
+      "version": "1.0.0",
+      "description": "Live broadcast"
+    }
+  ],
+  "apps-staple": [
+    {
+      "name": "TV",
+      "icon": "YoutubeOutlined",
+      "tags": [
+        "tv",
+        "live"
+      ],
+      "version": "1.0.0",
+      "description": "Live broadcast"
+    }
+  ]
 }

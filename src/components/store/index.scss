@@ -16,6 +16,9 @@
 
     .staple,
     .all {
+        overflow: hidden;
+        height: 23px;
+
         .title {
             cursor: pointer;
             line-height: 22px;
@@ -31,18 +34,57 @@
             }
         }
 
-        .package{
-            .application{
-                height: 62px;
+        .package {
+            .application {
+                height: 52px;
+                display: flex;
+                align-items: center;
+                padding: 0 16px;
+            }
 
-                .icon{
-                    font-size: 48px;
+            .icon {
+                font-size: 42px;
+                display: inline-block;
+            }
+
+            .content {
+                flex: 1;
+                display: inline-block;
+                margin: auto 16px;
+
+                span {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    color: #616161;
+                    font-size: 13px;
+                }
+
+                span:nth-of-type(1) {
+                    font-weight: bold;
+                }
+
+                span:nth-of-type(2) {
+                    opacity: .85;
+                    font-size: 80%;
+                    padding-left: 6px;
+                }
+
+                span:last-of-type {
+                    display: block;
+                }
+            }
+
+            .action{
+                width: 16px;
+                .action-icon{
+                    cursor: pointer;
                 }
             }
         }
     }
+}
 
-    .expansion {
-        flex: 1;
-    }
+.expansion {
+    flex: 1;
 }
