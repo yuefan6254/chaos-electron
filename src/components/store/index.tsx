@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.scss';
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -10,17 +10,33 @@ interface apptype {
     icon: string;
     version: string;
     description: string;
+    isAdd?: boolean;
 }
 function Store() {
-    const [stapleState, SetStapleState] = useState(true);
-    const [allState, SetAllState] = useState(true);
     const adapters = new FileSync('data/app.json');
     const db = low(adapters)
-    const allApps = db.get('apps-all').value();
-    const stapleApps = db.get('apps-staple').value();
+
+    const [stapleState, SetStapleState] = useState(true);
+    const [allState, SetAllState] = useState(true);
+    const [allApps, SetAllApps] = useState([]);
+    const [stapleApps, SetStapleApps] = useState([]);
+    const [flag,SetFlag] = useState(0);
+
+    useEffect(() => {
+        SetAllApps(db.get('apps-all').value());
+        SetStapleApps(db.get('apps-staple').value());
+    },[flag])
 
     const addAppToStaple = (item: apptype) => {
+        db.get('apps-all').find({ name: item.name }).assign({ isAdd: true }).write();
         db.get('apps-staple').push(item).write();
+        SetFlag(flag + 1);
+    }
+
+    const removeAppToStaple = (item: apptype) => {
+        db.get('apps-staple').remove({ name: item.name }).write();
+        db.get('apps-all').find({ name: item.name }).assign({ isAdd: false }).write();
+        SetFlag(flag - 1);
     }
 
     const applicationContextEle = (item: apptype, index: number, type: string) => {
@@ -33,8 +49,9 @@ function Store() {
                     <span>{item.description}</span>
                 </div>
                 <div className='action'>
-                    {type == 'staple' ? <Icon className='action-icon' iconName='DeleteOutlined'></Icon> : null}
-                    {type == 'all' ? <Icon className='action-icon' iconName='CheckOutlined' onClick={() => addAppToStaple(item)}></Icon> : null}
+                    {type == 'staple' ? <Icon className='action-icon' iconName='DeleteOutlined' onClick={() => removeAppToStaple(item)}></Icon> : null}
+                    {type == 'all' && !item?.isAdd ? <Icon className='action-icon' iconName='CheckOutlined' onClick={() => addAppToStaple(item)}></Icon> : null}
+                    {type == 'all' && item?.isAdd ? <Icon className='action-icon added' iconName='CheckCircleOutlined'></Icon> : null}
                     <Icon className='action-icon' iconName='SettingOutlined'></Icon>
                 </div>
             </div>

@@ -16,6 +16,7 @@
   "apps-all": [
     {
       "name": "TV",
+      "isAdd": true,
       "icon": "YoutubeOutlined",
       "tags": [
         "tv",
@@ -28,6 +29,7 @@
   "apps-staple": [
     {
       "name": "TV",
+      "isAdd": false,
       "icon": "YoutubeOutlined",
       "tags": [
         "tv",
