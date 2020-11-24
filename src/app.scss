@@ -5,5 +5,10 @@
    .container{
        height: calc(100% - 30px);
        width: 100%;
+       display: flex;
+
+       .sash-container{
+           flex: 1;
+       }
    }
 }

@@ -1,9 +1,9 @@
 import './app.scss';
 import React, { useState, useEffect, createContext, useReducer } from 'react';
-import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import { TitleBar, ActivityBar } from './components/index';
 import { reducer, MixStateAndDispatch } from './store/index';
+import TV from './pages/tv';
 
 export const ColorContext = createContext<MixStateAndDispatch>({
     state: { color: 'rgb(231, 234, 235)' }
@@ -17,6 +17,9 @@ function App() {
                 <TitleBar></TitleBar>
                 <div className='container'>
                     <ActivityBar></ActivityBar>
+                    <div className='sash-container'>
+                        <TV></TV>
+                    </div>
                 </div>
             </div>
         </ColorContext.Provider>

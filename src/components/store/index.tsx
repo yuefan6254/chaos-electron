@@ -18,14 +18,10 @@ function Store() {
 
     const [stapleState, SetStapleState] = useState(true);
     const [allState, SetAllState] = useState(true);
-    const [allApps, SetAllApps] = useState([]);
-    const [stapleApps, SetStapleApps] = useState([]);
-    const [flag,SetFlag] = useState(0);
+    const [AppRelated, SetAppRelated] = useState({ allApps: [], stapleApps: [] });
+    const [flag, SetFlag] = useState(0);
 
-    useEffect(() => {
-        SetAllApps(db.get('apps-all').value());
-        SetStapleApps(db.get('apps-staple').value());
-    },[flag])
+    
 
     const addAppToStaple = (item: apptype) => {
         db.get('apps-all').find({ name: item.name }).assign({ isAdd: true }).write();
@@ -38,6 +34,13 @@ function Store() {
         db.get('apps-all').find({ name: item.name }).assign({ isAdd: false }).write();
         SetFlag(flag - 1);
     }
+
+    useEffect(() => {
+        SetAppRelated({
+            allApps: db.get('apps-all').value() || [],
+            stapleApps: db.get('apps-staple').value() || []
+        })
+    }, [flag])
 
     const applicationContextEle = (item: apptype, index: number, type: string) => {
         return (
@@ -67,7 +70,7 @@ function Store() {
                     <span>常用</span>
                 </div>
                 <div className='package'>
-                    {stapleApps.map((item: apptype, index: number) => applicationContextEle(item, index, 'staple'))}
+                    {AppRelated.stapleApps.map((item: apptype, index: number) => applicationContextEle(item, index, 'staple'))}
                 </div>
             </div>
             <div className={`all ${allState ? 'expansion' : ''}`}>
@@ -76,7 +79,7 @@ function Store() {
                     <span>全部</span>
                 </div>
                 <div className='package'>
-                    {allApps.map((item: apptype, index: number) => applicationContextEle(item, index, 'all'))}
+                    {AppRelated.allApps.map((item: apptype, index: number) => applicationContextEle(item, index, 'all'))}
                 </div>
             </div>
         </div>

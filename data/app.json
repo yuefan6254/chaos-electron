@@ -16,19 +16,6 @@
   "apps-all": [
     {
       "name": "TV",
-      "isAdd": true,
-      "icon": "YoutubeOutlined",
-      "tags": [
-        "tv",
-        "live"
-      ],
-      "version": "1.0.0",
-      "description": "Live broadcast"
-    }
-  ],
-  "apps-staple": [
-    {
-      "name": "TV",
       "isAdd": false,
       "icon": "YoutubeOutlined",
       "tags": [
@@ -38,5 +25,6 @@
       "version": "1.0.0",
       "description": "Live broadcast"
     }
-  ]
+  ],
+  "apps-staple": []
 }
